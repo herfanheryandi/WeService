@@ -10,7 +10,7 @@
           ['Lat', 'Long', 'Name'],
           @for(kota<-kotaList){
           	@if(!kota.lintang.equals("-")){
-          		[@kota.lintang, @kota.bujur, '@kota.nama'],
+          		[@kota.lintang, @kota.bujur, '@kota.nama: @kota.cuaca'],
           	}
           }
         ]);
