@@ -1,10 +1,12 @@
+package models;
+
 public class Kota{
-	String nama;
-	String lintang;
-	String bujur;
-	String cuaca;
-	String suhuMax;
-	String suhuMin;
+	public String nama;
+	public String lintang;
+	public String bujur;
+	public String cuaca;
+	public String suhuMax;
+	public String suhuMin;
 	
 	public Kota(String nama, String lintang, String bujur, String cuaca, String suhuMax, String suhuMin){
 		this.nama = nama;

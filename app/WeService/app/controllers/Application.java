@@ -4,6 +4,8 @@ import play.*;
 import play.mvc.*;
 import models.Kota;
 import views.html.*;
+import java.util.List;
+import java.util.ArrayList;
 import java.io.IOException;
 import org.jsoup.Connection;
 import org.jsoup.Connection.Response;
@@ -26,7 +28,7 @@ public class Application extends Controller {
         for (Element e:elem) {
             list.add(new Kota(e.child(0).text(),e.child(2).text(),e.child(3).text(),e.child(6).text(),e.child(8).text(),e.child(9).text()));
         }
-        return ok(index.render(list));
+        return ok(views.html.index.render(list));
     }
 
 }
