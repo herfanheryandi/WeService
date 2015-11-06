@@ -7,19 +7,30 @@
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Lat', 'Long', 'Name'],
+          ['Lat', 'Long', 'Name', 'Marker'],
           @for(kota<-kotaList){
           	@if(!kota.lintang.equals("-")){
-          		[@kota.lintang, @kota.bujur, '@kota.nama: @kota.cuaca'],
+          		[@kota.lintang, @kota.bujur, '@kota.nama: @kota.cuaca @kota.suhuMax-@kota.suhuMin',  'blue'],
           	}
           }
         ]);
-
+        var url = 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/';
+        var options = {
+        showTip: true,
+        useMapTypeControl: true,
+        icons: {
+          blue: {
+            normal:   url + 'Map-Marker-Ball-Azure-icon.png',
+            selected: url + 'Map-Marker-Ball-Right-Azure-icon.png'
+          }
+        }
+      };
         var map = new google.visualization.Map(document.getElementById('map_div'));
-        map.draw(data, {showTip: true});
+        map.draw(data, options);
       }
 
     </script>
+    <title>WeService | West Java's Weather Forecast</title>
   </head>
 
   <body>
