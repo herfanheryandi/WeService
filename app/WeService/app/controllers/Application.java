@@ -26,7 +26,7 @@ public class Application extends Controller {
         Elements elem = xml.select("row");
         list = new ArrayList<Kota>();
         for (Element e:elem) {
-            list.add(new Kota(e.child(0).text(),e.child(2).text(),e.child(3).text(),e.child(6).text(),e.child(8).text(),e.child(9).text()));
+            list.add(new Kota(e.child(0).text(),e.child(2).text(),e.child(3).text(),e.child(6).text(),e.child(7).text(),e.child(8).text()));
         }
         return ok(views.html.index.render(list));
     }
