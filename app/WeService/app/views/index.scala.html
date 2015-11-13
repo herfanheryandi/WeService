@@ -1,4 +1,4 @@
-@(kotaList: List[models.Kota])
+@(kotaList: List[models.Kota])(provinsiList: List[models.Provinsi])
 <html>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -29,12 +29,24 @@
         map.draw(data, options);
       }
 
+      function gantiLink(e){
+        document.getElementById("cek").href=e.options[e.selectedIndex].value;
+      }
+
     </script>
     <title>WeService | Indonesia Weather Forecast</title>
   </head>
 
   <body>
     <div id="map_div" style="width: 800px; height: 600px"></div>
+    <select id="provinsi" onchange="gantiLink(this)">
+      <option value="kosong" selected="selected" disabled="disabled">-PilihProvinsi-</option>
+      @for(provinsi<-provinsiList){
+            <option value="@provinsi.id">@provinsi.nama</option>
+          }
+    </select>
+    <a id="cek" href=""><input type="button" value="Cek"/></a>
+
   </body>
 </html>
 

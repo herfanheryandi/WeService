@@ -17,3 +17,6 @@ libraryDependencies ++= Seq(
 routesGenerator := InjectedRoutesGenerator
 EclipseKeys.preTasks := Seq(compile in Compile)
 //EclipseKeys.skipParents in ThisBuild := false
+
+
+libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.18"

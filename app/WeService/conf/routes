@@ -4,7 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET     /map/:kode                   controllers.Application.map(kode: String)
+GET     /:kode                   controllers.Application.map(kode: String)
+GET     /coba/                           controllers.Application.cobaDatabase()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
