@@ -14,24 +14,35 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-//database
+//database+forms
 import play.db.*;
 import java.sql.*;
 import models.Provinsi;
-
+import play.data.*;
 
 public class Application extends Controller {
 	List<Kota> listKota;
-
-    //coba
     List<Provinsi> listProvinsi;
-	
+
     public Result index() throws IOException, SQLException{
-        return this.map("13");
+        return this.getMap("13","1");
     }
     
-    public Result map(String kode) throws IOException, SQLException{
-    	org.jsoup.Connection conn = Jsoup.connect("http://data.bmkg.go.id/propinsi_"+kode+"_1.xml");
+    public Result map() throws IOException, SQLException{
+        DynamicForm requestData = Form.form().bindFromRequest();
+        String kode = requestData.get("kode");
+        String hari = requestData.get("hari");
+        if (hari.equals("Today")){
+            hari="1";
+        }
+        else{
+            hari="2";
+        }
+        return this.getMap(kode,hari);
+    }
+    
+    public Result getMap(String kode, String hari) throws IOException, SQLException{
+        org.jsoup.Connection conn = Jsoup.connect("http://data.bmkg.go.id/propinsi_"+kode+"_"+hari+".xml");
         conn.timeout(0);
         conn.method(Connection.Method.GET);
         Response resp = conn.execute();
@@ -41,7 +52,6 @@ public class Application extends Controller {
         for (Element e:elem) {
             listKota.add(new Kota(e.child(0).text(),e.child(2).text(),e.child(3).text(),e.child(6).text(),e.child(7).text(),e.child(8).text()));
         }
-        
         //mengambil data provinsi dari database
         listProvinsi = new ArrayList<Provinsi>();
         java.sql.Connection connection = DB.getConnection();
@@ -53,15 +63,7 @@ public class Application extends Controller {
         return ok(views.html.index.render(listKota,listProvinsi));
     }
 
-     public Result cobaDatabase() throws SQLException{
-        java.sql.Connection connection = DB.getConnection();
-        StringBuilder output = new StringBuilder();
-        Statement statement = connection.createStatement();
-        ResultSet result = statement.executeQuery("SHOW TABLES;");
-        while (result.next()) {
-            output.append(result.getString(1) + "/");
-        }
-        return ok(output.toString());
-    }
+
+
 
 }
