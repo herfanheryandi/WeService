@@ -40,6 +40,26 @@ INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
 ('02', 'Sumatera Utara'),
 ('03', 'Sumatera Barat'),
 ('04', 'Jambi'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+('05', 'Bengkulu'),
+06,Riau;
+07,Kepulauan Riau;
+08,Sumatera Selatan;
+09,Bangka Belitung;
+10,Lampung;
+11,Banten;
+13,Jawa Barat;
+14,Jawa Tengah;
+15,DI Yogyakarta;
 ('16', 'Jawa Timur'),
 ('27', 'Sulawesi Tenggara'),
 ('33', 'Papua');
