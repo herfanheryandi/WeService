@@ -51,8 +51,22 @@ INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
 ('14', 'Jawa Tengah'),
 ('15', 'DI Yogyakarta'),
 ('16', 'Jawa Timur'),
-
+('17', 'Bali'),
+('18', 'NTB'),
+('19', 'NTT'),
+('20', 'Kalimantan Barat'),
+('21', 'Kalimantan Tengah'),
+('22', 'Kalimantan Selatan'),
+('23', 'Kalimantan Timur'),
+('24', 'Gorontalo'),
+('25', 'Sulawesi Utara'),
+('26', 'Sulawesi Tengah'),
 ('27', 'Sulawesi Tenggara'),
+('28', 'Sulawesi Selatan'),
+('29', 'Sulawesi Barat'),
+('30', 'Maluku'),
+('31', 'Maluku Utara'),
+('32', 'Papua Barat'),
 ('33', 'Papua');
 
 --
