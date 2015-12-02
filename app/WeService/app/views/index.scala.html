@@ -26,8 +26,8 @@
         useMapTypeControl: true,
         icons: {
           blue: {
-            normal:   url + 'Map-Marker-Ball-Azure-icon.png',
-            selected: url + 'Map-Marker-Ball-Right-Azure-icon.png'
+            normal:  '@routes.Assets.versioned("images/icon_normal/anemometer_mono.png")',
+            selected: '@routes.Assets.versioned("images/icon_selected/anemometer_mono.png")'
           }
         }
       };
@@ -53,7 +53,7 @@
         <div class="col-sm-4" style="height:2%;"></div>
         <div class="col-sm-4">
               <select class="form-control" id="provinsi" name="kode">
-                <option value="kosong" selected="selected" disabled="disabled">-PilihProvinsi-</option>
+                <option value="kosong" selected="selected" disabled="disabled">-Pilih Provinsi-</option>
                 @for(provinsi<-provinsiList){
                   <option value="@provinsi.id">@provinsi.nama</option>
                 }
