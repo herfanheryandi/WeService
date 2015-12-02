@@ -27,6 +27,9 @@ public class Application extends Controller {
     public Result index() throws IOException, SQLException{
         return this.getMap("13","1");
     }
+    public Result other(String other) throws IOException, SQLException{
+        return notFound("Page " + other + " not found");
+    }
     
     public Result map() throws IOException, SQLException{
         DynamicForm requestData = Form.form().bindFromRequest();

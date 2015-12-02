@@ -16,16 +16,39 @@
           ['Lat', 'Long', 'Name', 'Marker'],
           @for(kota<-kotaList){
           	@if(!kota.lintang.equals("-")){
-          		[@kota.lintang, @kota.bujur, '@kota.nama: @kota.cuaca \ @kota.suhuMax&#176C - @kota.suhuMin&#176C',  'blue'],
+          		[@kota.lintang, @kota.bujur, '@kota.nama: @kota.cuaca \ @kota.suhuMax&#176C - @kota.suhuMin&#176C',  '@kota.icon'],
           	}
           }
         ]);
-        var url = 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/';
         var options = {
         showTip: true,
         useMapTypeControl: true,
         icons: {
-          blue: {
+          cerah: {
+            normal:  '@routes.Assets.versioned("images/icon_normal/sunny.png")',
+            selected: '@routes.Assets.versioned("images/icon_selected/sunny.png")'
+          },
+          cerah_berawan: {
+            normal:  '@routes.Assets.versioned("images/icon_normal/cloudysunny.png")',
+            selected: '@routes.Assets.versioned("images/icon_selected/cloudysunny.png")'
+          },
+          berawan: {
+            normal:  '@routes.Assets.versioned("images/icon_normal/cloudy.png")',
+            selected: '@routes.Assets.versioned("images/icon_selected/cloudy.png")'
+          },
+          hujan_ringan: {
+            normal:  '@routes.Assets.versioned("images/icon_normal/umbrella-2.png")',
+            selected: '@routes.Assets.versioned("images/icon_selected/umbrella-2.png")'
+          },
+          hujan_sedang: {
+            normal:  '@routes.Assets.versioned("images/icon_normal/rainy.png")',
+            selected: '@routes.Assets.versioned("images/icon_selected/rainy.png")'
+          },
+          hujan_lebat: {
+            normal:  '@routes.Assets.versioned("images/icon_normal/thunderstorm.png")',
+            selected: '@routes.Assets.versioned("images/icon_selected/thunderstorm.png")'
+          },
+          default: {
             normal:  '@routes.Assets.versioned("images/icon_normal/anemometer_mono.png")',
             selected: '@routes.Assets.versioned("images/icon_selected/anemometer_mono.png")'
           }
@@ -45,30 +68,33 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-sm-8" id="map_div" style="height:100%; background-color:lavender;">
+        <div class="col-sm-8 col-md-8" id="map_div" style="height:100%; background-color:lavender;">
           
         </div>
+        
+
 		<img class = "center-block" src="@routes.Assets.versioned("images/logo.png")"/>	
         <form action="@routes.Application.map()" method="POST" accept-charset="utf-8">
-        <div class="col-sm-4" style="height:2%;"></div>
-        <div class="col-sm-4">
-              <select class="form-control" id="provinsi" name="kode">
-                <option value="kosong" selected="selected" disabled="disabled">-Pilih Provinsi-</option>
-                @for(provinsi<-provinsiList){
-                  <option value="@provinsi.id">@provinsi.nama</option>
-                }
-              </select>
-        </div>
-		
-        <div class="col-sm-4" style="height:2%;"></div>
-        </br>
-        <div class="col-sm-2">
-           <input class="btn btn-info tombol" type="submit" name="hari" value="Today" disabled="disabled"/>
-        </div>
-        <div class="col-sm-2">
-           <input class="btn btn-info tombol" type="submit" name="hari" value="Tomorrow" disabled="disabled"/>
-        </div>
+	        <div class="col-sm-4" style="height:2%;"></div>
+	        <div class="col-sm-4">
+	              <select class="form-control" id="provinsi" name="kode">
+	                <option value="kosong" selected="selected" disabled="disabled">-Pilih Provinsi-</option>
+	                @for(provinsi<-provinsiList){
+	                  <option value="@provinsi.id">@provinsi.nama</option>
+	                }
+	              </select>
+	        </div>
+			
+	        <div class="col-sm-4" style="height:2%;"></div>
+	        </br>
+	        <div class="col-sm-2">
+	           <input class="btn btn-info tombol" type="submit" name="hari" value="Today" disabled="disabled"/>
+	        </div>
+	        <div class="col-sm-2">
+	           <input class="btn btn-info tombol" type="submit" name="hari" value="Tomorrow" disabled="disabled"/>
+	        </div>
         </form>
+
         
       </div>
       
